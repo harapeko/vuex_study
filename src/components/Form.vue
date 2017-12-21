@@ -1,10 +1,10 @@
 <template>
-  <div>this is Form Page</div>
+  <div>This is Form Page</div>
 </template>
 
 <script>
 export default {
-  name: 'from',
+  name: 'Form',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
