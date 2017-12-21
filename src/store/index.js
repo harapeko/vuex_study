@@ -11,12 +11,42 @@ const Form = {
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log('buttonAction')
+      commit('setStepCount', null, {root: true}) //rootへのアクセス
     }
   }
 }
 
+const Head = {
+  state: {
+    title: ['感想を入力するでち', '確認画面でち', '送信完了でち']
+  },
+  mutations: {},
+  actions: {},
+  getters: {
+    getTitle(state, getters, rootState) {
+      return state.title[rootState.stepCount]
+    }
+  },
+}
+
 export default new Vuex.Store({
+  state: {
+    stepMax: 3,
+    stepCount: 0,
+  },
+  mutations: {
+    setStepCount (state) {
+      console.log("rootsetStepCount")
+      console.log( state.stepOffset )
+      state.stepCount++
+
+      if(state.stepCount == state.stepMax) {
+        state.stepCount = 0
+      }
+    }
+  },
   modules: {
-    Form
+    Form,
+    Head
   }
 })

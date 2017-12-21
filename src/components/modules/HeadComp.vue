@@ -3,12 +3,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'headComp',
-  data () {
-    return {
-      title: '入力するでち'
-    }
-  }
+  computed: mapGetters({
+    'title': 'getTitle'
+  })
 }
 </script>
