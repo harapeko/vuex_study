@@ -1,14 +1,20 @@
-<template>
-  <div>This is Form Page</div>
+<template lang="pug">
+  div This is Form Page
+    head-comp
 </template>
 
 <script>
+import HeadComp from '@/components/modules/HeadComp'
+
 export default {
-  name: 'Form',
+  name: 'FormPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'ようこそでち'
     }
+  },
+  components: {
+    HeadComp
   }
 }
 </script>

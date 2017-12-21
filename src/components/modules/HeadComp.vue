@@ -1,13 +1,13 @@
 <template>
-  <div>This is Form Page</div>
+  <h1>{{ title }}</h1>
 </template>
 
 <script>
 export default {
-  name: 'Form',
+  name: 'headComp',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      title: '入力するでち'
     }
   }
 }
