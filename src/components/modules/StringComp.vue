@@ -1,13 +1,13 @@
-<template>
-  <div>This is Form Page</div>
+<template lang="pug">
+  p {{ string }}
 </template>
 
 <script>
 export default {
-  name: 'Form',
+  name: 'stringComp',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      string: '入力された感想がここにでるでち'
     }
   }
 }
