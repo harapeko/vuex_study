@@ -14,13 +14,11 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'FormComp',
-  data () {
-    return {
-      button: '確認'
-    }
-  },
   methods: mapActions('Form', {
     'buttonAction': 'buttonAction'
+  }),
+  computed: mapGetters('Form', {
+    'button': 'getButton'
   }),
   components: {
     HeadComp,
