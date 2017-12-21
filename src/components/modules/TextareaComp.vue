@@ -1,14 +1,21 @@
-<template>
-  <div>This is Form Page</div>
+<template lang="pug">
+  div
+    p.error {{ error }}
+    textarea
 </template>
 
 <script>
 export default {
-  name: 'Form',
+  name: 'textareaComp',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      error: '入力は必須でち'
     }
   }
 }
 </script>
+
+<style scoped lang="sass">
+.error
+  color: tomato
+</style>
