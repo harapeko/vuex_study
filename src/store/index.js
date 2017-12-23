@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const Form = {
   namespaced: true,
   state: {
-    button: ["確認", "送信", "戻る"],
+    button: ["確認", "送信"],
     component: ["TextareaComp", "StringComp"]
   },
   mutations: {},
@@ -16,6 +16,9 @@ const Form = {
       console.log('buttonAction')
       if (rootState.errorFlag) {
         commit('setStepCount', null, {root: true}) //rootへのアクセス
+      }
+      if (rootState.stepCount == 2) {
+        router.push('thanks')
       }
     }
   },
@@ -31,7 +34,7 @@ const Form = {
 
 const Head = {
   state: {
-    title: ['感想を入力するでち', '確認画面でち', '送信完了でち']
+    title: ['感想を入力するでち', '確認画面でち']
   },
   mutations: {},
   actions: {},
