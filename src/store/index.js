@@ -7,18 +7,24 @@ Vue.use(Vuex)
 const Form = {
   namespaced: true,
   state: {
-    button: ["確認", "送信", "戻る"]
+    button: ["確認", "送信", "戻る"],
+    component: ["TextareaComp", "StringComp"]
   },
   mutations: {},
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log('buttonAction')
-      commit('setStepCount', null, {root: true}) //rootへのアクセス
+      if (rootState.errorFlag) {
+        commit('setStepCount', null, {root: true}) //rootへのアクセス
+      }
     }
   },
   getters: {
     getButton(state, getters, rootState) {
       return state.button[rootState.stepCount]
+    },
+    getComponent (state, getters, rootState) {
+      return state.component[rootState.stepCount]
     }
   }
 }
@@ -34,6 +40,15 @@ const Head = {
       return state.title[rootState.stepCount]
     }
   },
+}
+
+const String = {
+  namespaced: true, //名前空有巻を有効にする
+  getters: {
+    getString (state, getters, rootState) {
+      return rootState.impression
+    }
+  }
 }
 
 const Textarea = {
@@ -82,6 +97,7 @@ export default new Vuex.Store({
   modules: {
     Form,
     Head,
-    Textarea
+    Textarea,
+    String
   }
 })

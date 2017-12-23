@@ -1,8 +1,7 @@
 <template lang="pug">
   div This is Form Page
     HeadComp
-    TextareaComp
-    StringComp
+    component(:is="isComponent")
     button(@click="buttonAction") {{ button }}
 </template>
 
@@ -18,7 +17,8 @@ export default {
     'buttonAction': 'buttonAction'
   }),
   computed: mapGetters('Form', {
-    'button': 'getButton'
+    'button': 'getButton',
+    'isComponent': 'getComponent',
   }),
   components: {
     HeadComp,
