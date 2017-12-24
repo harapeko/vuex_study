@@ -14,6 +14,7 @@ const Form = {
   actions: {
     buttonAction({ commit, state, rootState }) {
       console.log('buttonAction')
+      console.log(state.stepCount)
       if (rootState.errorFlag) {
         commit('setStepCount', null, {root: true}) //rootへのアクセス
       }
@@ -81,11 +82,7 @@ export default new Vuex.Store({
     setStepCount (state) {
       console.log("rootsetStepCount")
       console.log( state.stepOffset )
-      state.stepCount++
-
-      if(state.stepCount == state.stepMax) {
-        state.stepCount = 0
-      }
+      state.stepCount = (state.stepCount + 1) % 3
     },
     updateImpression(state, value) {
       state.impression = value
